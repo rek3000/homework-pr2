@@ -1,0 +1,7 @@
+a. The  statement in line 10 intializes an int array 
+b. it did work. The difference is that the later form is
+much easier to understand that this is an int array rather
+than other data types.
+c. printf in line 6 print the element of the array according
+to the index of it.
+d. 

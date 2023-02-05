@@ -1,0 +1,11 @@
+a. The total length of string str = 18
+b. w1 = "be" | w2 = "be" | w1.equals(w2) = true
+c. The start index of string and the end index(exclusive) of word
+d. The result is the false. 
+	Reason: the w2, which is substring of str has the '\n' at the end of
+	the string. therefore when comparing w1 and w2 with ==, the result is
+	false. On the other hand, evoking equals method does not include '\n' in
+	the comparison. 
+e. int len = chars.length;
+f. '+' means concatenating strings or variables to make a string
+g. the output tells that strings in java are char arrays.
