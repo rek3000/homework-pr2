@@ -33,45 +33,48 @@ public class Arrays {
 			} else if (choice == 0) { 
 				break;
 			}
-			initScan.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
+			initScan.nextLine();
+			// initScan.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
 			switch (choice) {
-			case 1:
-				countNegatives();
-				break;
+				case 1:
+					countNegatives();
+					break;
 
-			case 2:
-				countEvens();
-				break;
+				case 2:
+					countEvens();
+					break;
 
-			case 3:
-				break;
+				case 3:
+					break;
 
-			case 4:
-				break;
+				case 4:
+					break;
 
-			case 5:
-				break;
+				case 5:
+					break;
 
-			case 6:
-				break;
+				case 6:
+					break;
 
-			case 7:
-				break;
+				case 7:
+					break;
 
-			case 8:
-				break;
+				case 8:
+					break;
 
-			case 9:
-				break;
+				case 9:
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		}
 	}
 
+	/**
+	 *
+	 */
 	public static void countNegatives() {
 		System.out.println("Enter the length of the array");
 		System.out.print("> ");
@@ -94,6 +97,9 @@ public class Arrays {
 		System.out.println();
 	}
 
+	/**
+	 *
+	 */
 	public static void countEvens() {
 		System.out.println("Enter the length of the array");
 		System.out.print("> ");
@@ -120,6 +126,9 @@ public class Arrays {
 		System.out.println();
 	}
 
+	/**
+	 *
+	 */
 	public static void divArray() {
 		System.out.println("Enter the length of the array");
 		System.out.print("> ");
@@ -130,8 +139,14 @@ public class Arrays {
 			System.out.print(i + " element: ");
 			arr[i] = initScan.nextDouble();
 		}
+
+		// IMPLEMENT
+
 	}
 
+	/**
+	 *
+	 */
 	public static void min() {
 		System.out.println("Enter the length of the array");
 		System.out.print("> ");
@@ -142,17 +157,20 @@ public class Arrays {
 			System.out.print(i + " element: ");
 			arr[i] = initScan.nextInt();
 		}
-		
+
 		int min = arr[0];
 		for (int i = 0; i < arr.length; i++) {
 			if (min < arr[i]) {
 				min = arr[i];
 			}
 		}
-		
+
 		System.out.println("The minimum int element: " + min);
 	}
 
+	/**
+	 *
+	 */
 	public static void isAscSorted() {
 		System.out.println("Enter the length of the array");
 		System.out.print("> ");
@@ -163,29 +181,41 @@ public class Arrays {
 			System.out.print(i + " element: ");
 			arr[i] = initScan.nextInt();
 		}
-		
+
 		int min = arr[0];
 		for (int i = 0; i < arr.length; i++) {
 			if (min < arr[i]) {
 				min = arr[i];
 			}
 		}
-
 	}
 
+	/**
+	 *
+	 */
 	public static void length() {
 
 	}
 
+	/**
+	 *
+	 */
 	public static void median() {
 
 	}
 
+	/**
+	 *
+	 */
 	public static void compare() {
 
 	}
 
+	/**
+	 *
+	 */
 	public static void freq() {
 
 	}
+
 }
