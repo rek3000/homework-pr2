@@ -8,6 +8,6 @@ run: $(proj).class
 	java $(proj)
 
 source := $(wildcard *.java)
-class= $(subst .java,.class, $(source))
+# class= $(subst .java,.class, $(source))
 clean:
-	rm $(class)
+	rm *.class

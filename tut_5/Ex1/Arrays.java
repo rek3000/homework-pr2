@@ -46,15 +46,19 @@ public class Arrays {
 					break;
 
 				case 3:
+					divArray();
 					break;
 
 				case 4:
+					min();
 					break;
 
 				case 5:
+					isAscSorted();
 					break;
 
 				case 6:
+					length();
 					break;
 
 				case 7:
@@ -140,8 +144,25 @@ public class Arrays {
 			arr[i] = initScan.nextDouble();
 		}
 
-		// IMPLEMENT
+		System.out.println("Divisor");
+		System.out.print("> ");
+		double divisor = initScan.nextDouble(); 
 
+		System.out.println("Before");
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
+
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = arr[i]/divisor;
+		}
+
+		System.out.println();
+
+		System.out.println("After");
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print(arr[i] + " ");
+		}
 	}
 
 	/**
@@ -194,7 +215,19 @@ public class Arrays {
 	 *
 	 */
 	public static void length() {
+		System.out.println("Enter the char array");
+		System.out.print("> ");
+		String str = initScan.nextLine().trim();
 
+		if (str.contains("\\u0000")) {
+			str = str.substring(0, str.indexOf("\\u0000"));
+		} else if (str.contains("\\0")) {
+			str = str.substring(0, str.indexOf("\\0"));
+		}                      
+
+		char[] array = str.toCharArray();
+		System.out.println("The length of the array is " + array.length);
+		System.out.println();                                                                             
 	}
 
 	/**
