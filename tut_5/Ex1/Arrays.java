@@ -6,6 +6,10 @@ public class Arrays {
 	static Scanner initScan = new Scanner(System.in);
 
 	public static void main(String[] args) {
+		menuLoop();
+	}
+
+	private static void menuLoop() {
 		while (true) {
 			System.out.println("1. Count the negative elements");
 			System.out.println("2. Count the even elements of an array of positive integers");
@@ -34,40 +38,44 @@ public class Arrays {
 				break;
 			}
 			initScan.nextLine();
-			// initScan.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
 			switch (choice) {
 				case 1:
-					countNegatives();
+					countNegatives(initIntArray());
 					break;
 
 				case 2:
-					countEvens();
+					countEvens(initIntArray());
 					break;
 
 				case 3:
-					divArray();
+					divArray(initDoubleArray());
 					break;
 
 				case 4:
-					min();
+					min(initIntArray());
 					break;
 
 				case 5:
-					isAscSorted();
+					isAscSorted(initIntArray());
 					break;
 
 				case 6:
-					length();
+					System.out.println("Enter the char array");
+					System.out.print("> ");
+					String str = initScan.nextLine().trim();
+					length(str);
 					break;
 
 				case 7:
+					median(initDoubleArray());
 					break;
 
 				case 8:
 					break;
 
 				case 9:
+					freq(initDoubleArray());
 					break;
 
 				default:
@@ -76,20 +84,37 @@ public class Arrays {
 		}
 	}
 
-	/**
-	 *
-	 */
-	public static void countNegatives() {
+	private static int[] initIntArray() {
 		System.out.println("Enter the length of the array");
 		System.out.print("> ");
 		int len = initScan.nextInt();
 		int[] arr = new int[len];
 
 		for (int i = 0; i < arr.length; i++) {
-			System.out.print(i + " element: ");
+			System.out.print("Array[" + i + "]: ");
 			arr[i] = initScan.nextInt();
 		}
 
+		return arr;
+	}
+
+	private static double[] initDoubleArray() {
+		System.out.println("Enter the length of the array");
+		System.out.print("> ");
+		int len = initScan.nextInt();
+		double[] arr = new double[len];
+
+		for (int i = 0; i < arr.length; i++) {
+			System.out.print("Array[" + i + "]: ");
+			arr[i] = initScan.nextDouble();
+		}
+
+		return arr;
+	}
+	/**
+	 *
+	 */
+	public static void countNegatives(int[] arr) {
 		int count = 0;
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] < 0) {
@@ -104,17 +129,7 @@ public class Arrays {
 	/**
 	 *
 	 */
-	public static void countEvens() {
-		System.out.println("Enter the length of the array");
-		System.out.print("> ");
-		int len = initScan.nextInt();
-		int[] arr = new int[len];
-
-		for (int i = 0; i < arr.length; i++) {
-			System.out.print(i + " element: ");
-			arr[i] = initScan.nextInt();
-		}
-
+	public static void countEvens(int[] arr) {
 		int count = 0;
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] < 0) {
@@ -133,17 +148,7 @@ public class Arrays {
 	/**
 	 *
 	 */
-	public static void divArray() {
-		System.out.println("Enter the length of the array");
-		System.out.print("> ");
-		int len = initScan.nextInt();
-		double[] arr = new double[len];
-
-		for (int i = 0; i < arr.length; i++) {
-			System.out.print(i + " element: ");
-			arr[i] = initScan.nextDouble();
-		}
-
+	public static void divArray(double[] arr) {
 		System.out.println("Divisor");
 		System.out.print("> ");
 		double divisor = initScan.nextDouble(); 
@@ -168,17 +173,7 @@ public class Arrays {
 	/**
 	 *
 	 */
-	public static void min() {
-		System.out.println("Enter the length of the array");
-		System.out.print("> ");
-		int len = initScan.nextInt();
-		int[] arr = new int[len];
-
-		for (int i = 0; i < arr.length; i++) {
-			System.out.print(i + " element: ");
-			arr[i] = initScan.nextInt();
-		}
-
+	public static void min(int[] arr) {
 		int min = arr[0];
 		for (int i = 0; i < arr.length; i++) {
 			if (min < arr[i]) {
@@ -192,21 +187,13 @@ public class Arrays {
 	/**
 	 *
 	 */
-	public static void isAscSorted() {
-		System.out.println("Enter the length of the array");
-		System.out.print("> ");
-		int len = initScan.nextInt();
-		int[] arr = new int[len];
-
-		for (int i = 0; i < arr.length; i++) {
-			System.out.print(i + " element: ");
-			arr[i] = initScan.nextInt();
-		}
-
+	public static void isAscSorted(int[] arr) {
 		int min = arr[0];
 		for (int i = 0; i < arr.length; i++) {
-			if (min < arr[i]) {
-				min = arr[i];
+			if (min > arr[i]) {
+				System.out.println("This array is not in ascending order");
+			} else {
+				System.out.println("This array is in ascending order");
 			}
 		}
 	}
@@ -214,11 +201,7 @@ public class Arrays {
 	/**
 	 *
 	 */
-	public static void length() {
-		System.out.println("Enter the char array");
-		System.out.print("> ");
-		String str = initScan.nextLine().trim();
-
+	public static void length(String str) {
 		if (str.contains("\\u0000")) {
 			str = str.substring(0, str.indexOf("\\u0000"));
 		} else if (str.contains("\\0")) {
@@ -233,22 +216,51 @@ public class Arrays {
 	/**
 	 *
 	 */
-	public static void median() {
+	public static void median(double[] arr) {
+		int x = arr.length/2;
+
+		if (arr.length%2 == 0) {
+			System.out.println("Median: " + arr[x] + "," + arr[x + 1]);
+		} else {
+			System.out.println("Median: " + arr[x + 1]);
+		}
+	}
+
+	/**
+	 *
+	 */
+	public static void compare(double[] arr) {
 
 	}
 
 	/**
 	 *
 	 */
-	public static void compare() {
+	public static void freq(double[] arr) {
+		int[] freq = new int[arr.length];
+		int existed = -1;
 
+		for (int i = 0; i < arr.length; i++) {
+			int count = 1; 
+			
+			for (int j = i + 1; j < arr.length; j++) {
+				if (arr[i] == arr[j]) {
+					++count;
+					freq[j] = existed;
+				}
+			}
+
+			if (freq[i] != existed) {
+				freq[i] = count;
+			}
+		}
+
+		System.out.println("~ELEMENTS + FREQUENCY~");
+		for (int i = 0; i < arr.length; i++) {
+			if (freq[i] != existed) {
+				System.out.print(arr[i] + " | " + freq[i]);
+			}
+			System.out.println();
+		}
 	}
-
-	/**
-	 *
-	 */
-	public static void freq() {
-
-	}
-
 }
