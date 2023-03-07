@@ -120,7 +120,7 @@ public class Arrays {
 	/**
 	 * Count the negative numbers
 	 * @requires arr is an integer arrray
-	 * @effects count then print the negative elements of arr
+	 * @effects Count then print the negative elements of arr
 	 */
 	public static void countNegatives(int[] arr) {
 		int count = 0;
@@ -137,7 +137,7 @@ public class Arrays {
 	/**
 	 * Count the even numbers
 	 * @requires arr is an array of positive integer numbers.
-	 * @effects count then print the even numbers of arr
+	 * @effects Count then print the even numbers of arr
 	 */
 	public static void countEvens(int[] arr) {
 		int count = 0;
@@ -160,10 +160,11 @@ public class Arrays {
 	/**
 	 * Divide each elements with an input divisor
 	 * @requires an array of real numbers
+	 * @modifiers arr
 	 * @effects 
-	 * 	get the divisor from the input
-	 * 	each element is divided by the divisor
-	 * 	print the array after dividing
+	 * 	Get the divisor from the input
+	 * 	Each element is divided by the divisor
+	 * 	Print the array before and after dividing to the console
 	 */
 	public static void divArray(double[] arr) {
 		System.out.println("Divisor");
@@ -190,8 +191,10 @@ public class Arrays {
 	/**
 	 * Compute the minimum elements
 	 * @requires an array of integer numbers
-	 * @effects loop through the array then find 
+	 * @effects 
+	 *	Loop through the array then find 
 	 * 	the minimum number
+	 * 	Print the result to the console
 	 */
 	public static void min(int[] arr) {
 		int min = arr[0];
@@ -207,7 +210,7 @@ public class Arrays {
 	/**
 	 * Check ascending order
 	 * @requires an array of integer numbers
-	 * @effects check if the array is in ascending order or not
+	 * @effects Check if the array is in ascending order or not
 	 */
 	public static void isAscSorted(int[] arr) {
 		int min = arr[0];
@@ -222,11 +225,12 @@ public class Arrays {
 
 	/**
 	 * @requires a string 
+	 * @modifiers str
 	 * @effects 
-	 * 	filter the terminator char
-	 * 	convert the string to a char array
-	 * 	calculate the length of the char array
-	 * 	print the result
+	 * 	Filt the terminator char
+	 * 	Convert the string to a char array
+	 * 	Calculate the length of the char array
+	 * 	Print the result to the console
 	 */
 	public static void length(String str) {
 		if (str.contains("\\u0000")) {
@@ -242,7 +246,7 @@ public class Arrays {
 
 	/**
 	 * @requires an array of real numbers
-	 * @effects find the median of the array
+	 * @effects Find the median of the array
 	 */
 	public static void median(double[] arr) {
 		int x = arr.length/2;
@@ -255,7 +259,14 @@ public class Arrays {
 	}
 
 	/**
-	 *
+	 * Compare two arrays with respect to the criteria
+	 * @requires two array (arr1 and arr2) of real numbers
+	 * @effects
+	 * 	Create three boolean var, isSubset, isEqual, isIntersect
+	 *	arr1.length = arr2.length -> compare each element
+	 *	arr1.length > arr2.length \/ arr1.length < arr2.length -> 
+	 *		determine with one is a subset of another
+	 *	Print the final result to the console
 	 */
 	public static void compare(double[] arr1, double[] arr2) {
 		boolean isSubset = false;
@@ -336,7 +347,14 @@ public class Arrays {
 	}
 
 	/**
-	 *
+	 * Find the frequency of each element
+	 * @requires an array of real numbers
+	 * @effects 
+	 * 	Create a temporary array to store the frequency
+	 * 	Loop through the array then count
+	 * 	While in the loop, distinguish the dupplicate element 
+	 * 	in order to not count the same element twice
+	 * 	Print the result to the console
 	 */
 	public static void freq(double[] arr) {
 		int[] freq = new int[arr.length];
