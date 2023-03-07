@@ -118,7 +118,9 @@ public class Arrays {
 		return arr;
 	}
 	/**
-	 *
+	 * Count the negative numbers
+	 * @requires arr is an integer arrray
+	 * @effects count then print the negative elements of arr
 	 */
 	public static void countNegatives(int[] arr) {
 		int count = 0;
@@ -133,12 +135,16 @@ public class Arrays {
 	}
 
 	/**
-	 *
+	 * Count the even numbers
+	 * @requires arr is an array of positive integer numbers.
+	 * @effects count then print the even numbers of arr
 	 */
 	public static void countEvens(int[] arr) {
 		int count = 0;
+		// check if the array contains positive numbers or not
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i] < 0) {
+				System.out.println("Invalid array!");
 				return;
 			}
 
@@ -152,7 +158,12 @@ public class Arrays {
 	}
 
 	/**
-	 *
+	 * Divide each elements with an input divisor
+	 * @requires an array of real numbers
+	 * @effects 
+	 * 	get the divisor from the input
+	 * 	each element is divided by the divisor
+	 * 	print the array after dividing
 	 */
 	public static void divArray(double[] arr) {
 		System.out.println("Divisor");
@@ -177,7 +188,10 @@ public class Arrays {
 	}
 
 	/**
-	 *
+	 * Compute the minimum elements
+	 * @requires an array of integer numbers
+	 * @effects loop through the array then find 
+	 * 	the minimum number
 	 */
 	public static void min(int[] arr) {
 		int min = arr[0];
@@ -191,7 +205,9 @@ public class Arrays {
 	}
 
 	/**
-	 *
+	 * Check ascending order
+	 * @requires an array of integer numbers
+	 * @effects check if the array is in ascending order or not
 	 */
 	public static void isAscSorted(int[] arr) {
 		int min = arr[0];
@@ -205,7 +221,12 @@ public class Arrays {
 	}
 
 	/**
-	 *
+	 * @requires a string 
+	 * @effects 
+	 * 	filter the terminator char
+	 * 	convert the string to a char array
+	 * 	calculate the length of the char array
+	 * 	print the result
 	 */
 	public static void length(String str) {
 		if (str.contains("\\u0000")) {
@@ -220,7 +241,8 @@ public class Arrays {
 	}
 
 	/**
-	 *
+	 * @requires an array of real numbers
+	 * @effects find the median of the array
 	 */
 	public static void median(double[] arr) {
 		int x = arr.length/2;
