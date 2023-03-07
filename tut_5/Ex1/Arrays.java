@@ -257,11 +257,12 @@ public class Arrays {
 	 */
 	public static void median(double[] arr) {
 		int x = arr.length/2;
+		java.utils.Arrays.sort(arr);
 
 		if (arr.length%2 == 0) {
-			System.out.println("Median: " + arr[x] + "," + arr[x + 1]);
+			System.out.println("Median: " + arr[x - 1] + "," + arr[x]);
 		} else {
-			System.out.println("Median: " + arr[x + 1]);
+			System.out.println("Median: " + arr[x]);
 		}
 	}
 

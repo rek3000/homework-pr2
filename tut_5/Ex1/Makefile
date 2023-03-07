@@ -1,5 +1,5 @@
 package=Ex1
-proj=Arrays
+proj=Math
 curdir=$(shell pwd)
 $(proj).class:
 	javac $(proj).java	
