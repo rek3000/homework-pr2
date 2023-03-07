@@ -214,12 +214,19 @@ public class Arrays {
 	 */
 	public static void isAscSorted(int[] arr) {
 		int min = arr[0];
+		int[] temp = arr.clone();
+		boolean isSorted = true;
+		java.util.Arrays.sort(temp);
 		for (int i = 0; i < arr.length; i++) {
-			if (min > arr[i]) {
-				System.out.println("This array is not in ascending order");
-			} else {
-				System.out.println("This array is in ascending order");
+			if (temp[i] != arr[i]) {
+				isSorted = false;
 			}
+		}
+
+		if (isSorted) {
+			System.out.println("The array is in ascending order");
+		} else {
+			System.out.println("The array is NOT in ascending order");
 		}
 	}
 
