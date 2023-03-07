@@ -72,6 +72,12 @@ public class Arrays {
 					break;
 
 				case 8:
+					System.out.println("First array");
+					double[] arr1 = initDoubleArray();
+					System.out.println();
+					System.out.println("Second array");
+					double[] arr2 = initDoubleArray();
+					compare(arr1, arr2);
 					break;
 
 				case 9:
@@ -229,8 +235,82 @@ public class Arrays {
 	/**
 	 *
 	 */
-	public static void compare(double[] arr) {
+	public static void compare(double[] arr1, double[] arr2) {
+		boolean isSubset = false;
+		boolean isEqual = false;
+		boolean isIntersect = false;
 
+		if (arr1.length == arr2.length) {
+			int count = 0;
+			for (int x = 0; x < arr1.length; x++) {
+				if (arr1[x] == arr2[x]) {
+					count++;
+				}
+			}
+			
+			if (count == arr1.length) {
+				isEqual = true;
+			} else if (count > 0) {
+				isIntersect = true;
+			}
+		}
+
+		if (arr1.length > arr2.length) {
+			isSubset = true;
+
+			int[] temp = new int[arr1.length];
+			int existed = -1;
+			for (int i = 1; i < temp.length; i++) {
+				temp[i] = 0;
+			}
+
+			int count = 0;
+			for (int i = 0; i < arr2.length; i++) {
+				for (int j = 0; j < arr1.length; j++) {
+					if ((arr2[i] == arr1[j]) && temp[j] != existed) {
+						count++;
+						temp[j] = existed;
+					}
+				}
+			}
+
+			if (count != arr2.length) {
+				isSubset = false;
+			} else if (count > 0) {
+				isIntersect = true;
+			}
+		}
+
+		if (arr1.length < arr2.length) {
+			isSubset = true;
+
+			int[] temp = new int[arr2.length];
+			int existed = -1;
+			for (int i = 1; i < temp.length; i++) {
+				temp[i] = 0;
+			}
+
+			int count = 0;
+			for (int i = 0; i < arr1.length; i++) {
+				for (int j = 0; j < arr2.length; j++) {
+					if ((arr1[i] == arr2[j]) && temp[j] != existed) {
+						count++;
+						temp[j] = existed;
+					}
+				}
+			}
+
+			if (count != arr1.length) {
+				isSubset = false;
+			} else if (count > 0) {
+				isIntersect = true;
+			}
+		}
+
+		System.out.println("Result:");
+		System.out.println("	>Subset: " + isSubset);
+		System.out.println("	>Equal: " + isEqual);
+		System.out.println("	>Intersect: " + isIntersect);
 	}
 
 	/**
